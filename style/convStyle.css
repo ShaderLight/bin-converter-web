@@ -1,19 +1,27 @@
 body {
     background-color: gray;
+    margin: 0;
 }
 
 .user-inputs {
     padding: 1%;
+    margin: 5px;
+}
+
+#main-title {
+    margin: 15px;
 }
 
 #footer {
     border-top: 2px solid gray;
     position: fixed;
     bottom: 0.1%;
-    width: 100%;
+    min-width: 100%;
     text-align: center;
     background-color: #0d0d0d;
     color: white;
+    box-sizing:content-box ;
+    margin: 0 auto;
 }
 
 #footer a {
