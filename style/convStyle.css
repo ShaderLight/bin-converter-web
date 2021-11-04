@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+label {
+    display: block;
+}
+
 .user-inputs {
     padding: 1%;
     margin: 5px;
