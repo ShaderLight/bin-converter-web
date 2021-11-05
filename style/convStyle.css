@@ -33,3 +33,11 @@ label {
     text-shadow: 1px 1px blue;
     color: #cecece;
 }
+
+.outputs {
+    display: inline-block;
+}
+
+.output-blocks {
+    display: inline-block;
+}
