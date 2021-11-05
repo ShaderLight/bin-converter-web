@@ -3,14 +3,15 @@
     <title>Binary converter</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/convStyle.css">
+    <script src="scripts/comboboxBind.js"></script>
 </head>
 <body>
     <h1 id="main-title">Binary converter</h1>
 
-    <label for="num-input">Input a number</label>
+    <label for="num-input" class="input-labels">Input a number</label>
     <input type="text" id="num-input" class="user-inputs" name="num-input">
     
-    <label for="from-base">Select representation of the given number</label>
+    <label for="from-base" class="input-labels">Select representation of the given number</label>
     <select id="from-base" name="from-base" class="user-inputs" name="from-base">
         <option value="10">Base-10 (decimal)</option>
         <option value="2">Base-2 (binary)</option>
@@ -20,7 +21,7 @@
         <option value="16">Base-16 (hexadecimal)</option>
     </select>
     
-    <label for="frac-bits">Fractional bits (precision)</label>
+    <label for="frac-bits" class="input-labels">Fractional bits (precision)</label>
     <input type="number" id="frac-bits" class="user-inputs" name="frac-bits" value="5" min="1" max="10">
 
     <button type="button">Convert</button>
@@ -32,11 +33,10 @@
     <p id="out-5" class="outputs">Base-16 (hexadecimal)</p>
 
     <div id="footer" style="font-size: small;">
-    <p style="padding-top: 0.1%; margin-bottom: 0px;">
-        Created by <a href="https://github.com/ShaderLight">ShaderLight</a>
-        |
-        <a href="https://github.com/ShaderLight/bin-converter-web">GitHub</a>
-    </p>
-    </p>
+        <p style="padding-top: 0.1%; margin-bottom: 0px;">
+            Created by <a href="https://github.com/ShaderLight">ShaderLight</a>
+            |
+            <a href="https://github.com/ShaderLight/bin-converter-web">GitHub</a>
+        </p>
     </div>
 </body>
