@@ -64,3 +64,40 @@ function DetranslateValues(x) {
 
     return x
 }
+
+
+function Inversion(x) {
+    let output = ''
+    for(let i = 0; i < x.length; i++) {
+        if (x[i] == '0') {
+            output += '1'
+            continue
+        }
+        if (x[i] == '1') {
+            output += '0'
+            continue
+        }
+        else {
+            output += x[i]
+        }
+    }
+    return output
+}
+
+
+function BinAddOneLsb(x) {
+    let sepIndex = x.indexOf('.')
+    let output
+
+    for(let i=0; i < x.length; i++) {
+        if(x[x.length - i - 1] == '0') {
+            output = x.slice(0, x.length - i - 1) + '1' + '0' * x.slice(x.length - i).length
+
+            if(sepIndex >= 0) {
+                output = output.slice(0, sepIndex) + '.' + output.slice(sepIndex + 1)
+            }
+            return output
+        }
+    }
+    throw 'Overflow Error'
+}
