@@ -26,6 +26,42 @@ function FromDecConvInt(x, to_base) {
     return output_str
 }
 
+// Takes positive float number less than 1 and converts it to any base (up to base-16)
+// bits -> maximum factional bits to calculate (precision)
+function FromDecConvFrac(x, to_base, bits) {
+    if(x >= 1) {
+        throw 'Greater than 1 Error'
+    }
+
+    let integralPart
+    let output = []
+
+    while(bits > 0) {
+        x *= to_base
+        integralPart = parseInt(x.toString().split('.')[0])
+        x -= integralPart
+        if(x == 0) {
+            break
+        }
+
+        if(integralPart >= 1) {
+            output.push(integralPart.toString())
+        }
+        else {
+            output.push('0')
+        }
+        bits -= 1
+    }
+
+    output = TranslateValues(output)
+    let output_str = ''
+
+    for(let i=0; i < output.length; i++) {
+        output_str += output[i]
+    }
+    return output_str
+}
+
 
 function TranslateValues(x) {
     const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
