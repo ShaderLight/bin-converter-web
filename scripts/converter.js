@@ -75,6 +75,18 @@ function FromDecConvFrac(x, toBase, bits) {
 }
 
 
+function ToDecConvInt(x, fromBase, bits) {
+    let output = 0
+
+    x = DetranslateValues(x)
+
+    for(let i=0; i < x.length; i++) {
+        output += parseInt(x[i]) * fromBase ** (x.length - i - 1)
+    }
+
+    return output
+}
+
 function TranslateValues(x) {
     const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
     let int_element
@@ -96,21 +108,29 @@ function TranslateValues(x) {
 
 function DetranslateValues(x) {
     const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
+    let output = []
+    let letterIndex
+    let intElement
 
     for(var i = 0; i < x.length; i++) {
-        try {
-            let int_element = parseInt(x[i])
-        } catch (error) {
-            let letterIndex = LETTERS.indexOf(x[i])
+
+        intElement = parseInt(x[i])
+        
+        if(isNaN(intElement)) {
+            letterIndex = LETTERS.indexOf(x[i])
+            
             if(letterIndex >= 0) {
-                x[i] = 10 + letterIndex
+                output.push(10 + letterIndex)
             }
             else {
+                output.push(x[i])
             }
         }
+        else {
+            output.push(x[i])
+        }
     }
-
-    return x
+    return output
 }
 
 
