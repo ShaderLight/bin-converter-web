@@ -58,6 +58,7 @@ function FromDecConvInt(x, toBase) {
     return output_str
 }
 
+
 // Takes positive float number less than 1 and converts it to any base (up to base-16)
 // bits -> maximum factional bits to calculate (precision)
 function FromDecConvFrac(x, toBase, bits) {
@@ -167,6 +168,25 @@ function DetranslateValues(x) {
 }
 
 
+function BinToU2(x) {
+    if(x[0] == '-') {
+        if(x[1] == '1') {
+            console.log(Inversion('0' + x.slice(1)))
+            x = Inversion('0' + x.slice(1))
+        }
+        else {
+            x = Inversion(x.slice(1))
+        }
+        return BinAddOneLsb(x)
+        }
+    if(x[0] == '0') {
+        return x
+    }
+
+    return '0' + x
+}
+
+
 function Inversion(x) {
     let output = ''
     for(let i = 0; i < x.length; i++) {
@@ -192,7 +212,9 @@ function BinAddOneLsb(x) {
 
     for(let i=0; i < x.length; i++) {
         if(x[x.length - i - 1] == '0') {
-            output = x.slice(0, x.length - i - 1) + '1' + '0' * x.slice(x.length - i).length
+            
+            output = x.slice(0, x.length - i - 1) + '1' + '0'.repeat(x.slice(x.length - i).length)
+            console.log(output)
 
             if(sepIndex >= 0) {
                 output = output.slice(0, sepIndex) + '.' + output.slice(sepIndex + 1)
