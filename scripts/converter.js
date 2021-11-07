@@ -1,4 +1,16 @@
-function FromDecConvInt(x, to_base) {
+function FromDecConv(x, toBase, bits=5) {
+    let integralPart = parseInt(x.toString().split('.')[0])
+    let fractionalPart = x - integralPart
+
+    if(fractionalPart == 0) {
+        return FromDecConvInt(integralPart, toBase)
+    }
+    else {
+        return FromDecConvInt(integralPart, toBase) + '.' + FromDecConvFrac(fractionalPart, toBase, bits)
+    }
+}
+
+function FromDecConvInt(x, toBase) {
     let output = []
 
     if (x == 0) {
@@ -10,8 +22,8 @@ function FromDecConvInt(x, to_base) {
     }
 
     while (x != 0) {
-        output.push(x % to_base)
-        x = Math.floor(x / to_base)
+        output.push(x % toBase)
+        x = Math.floor(x / toBase)
     }
 
     output.reverse()
@@ -28,7 +40,7 @@ function FromDecConvInt(x, to_base) {
 
 // Takes positive float number less than 1 and converts it to any base (up to base-16)
 // bits -> maximum factional bits to calculate (precision)
-function FromDecConvFrac(x, to_base, bits) {
+function FromDecConvFrac(x, toBase, bits) {
     if(x >= 1) {
         throw 'Greater than 1 Error'
     }
@@ -37,7 +49,7 @@ function FromDecConvFrac(x, to_base, bits) {
     let output = []
 
     while(bits > 0) {
-        x *= to_base
+        x *= toBase
         integralPart = parseInt(x.toString().split('.')[0])
         x -= integralPart
         if(x == 0) {
