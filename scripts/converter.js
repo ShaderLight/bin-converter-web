@@ -11,6 +11,25 @@ function FromDecConv(x, toBase, bits=5) {
 }
 
 
+function ToDecConv(x, fromBase) {
+    let negative = 1
+
+    if(x[0] == '-') {
+        negative = -1
+        x = x.slice(1)
+    }
+
+    let integralPart = x.toString().split('.')[0]
+    let fractionalPart = x.toString().split('.')[1]
+
+    if(typeof fractionalPart == 'undefined') {
+        return negative * ToDecConvInt(integralPart, fromBase)
+    }
+
+    return negative * (ToDecConvInt(integralPart, fromBase) + ToDecConvFrac(fractionalPart, fromBase))
+}
+
+
 function FromDecConvInt(x, toBase) {
     let output = []
 
