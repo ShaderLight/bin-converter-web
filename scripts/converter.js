@@ -10,6 +10,7 @@ function FromDecConv(x, toBase, bits=5) {
     }
 }
 
+
 function FromDecConvInt(x, toBase) {
     let output = []
 
@@ -75,7 +76,7 @@ function FromDecConvFrac(x, toBase, bits) {
 }
 
 
-function ToDecConvInt(x, fromBase, bits) {
+function ToDecConvInt(x, fromBase) {
     let output = 0
 
     x = DetranslateValues(x)
@@ -86,6 +87,19 @@ function ToDecConvInt(x, fromBase, bits) {
 
     return output
 }
+
+
+function ToDecConvFrac(x, fromBase) {
+    output = 0
+
+    x = DetranslateValues(x)
+    for(let i=0; i < x.length; i++) {
+        output += parseInt(x[i]) * fromBase ** (-1 - i)
+    }
+
+    return output
+}
+
 
 function TranslateValues(x) {
     const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
