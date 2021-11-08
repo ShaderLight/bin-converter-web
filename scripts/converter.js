@@ -2,6 +2,10 @@ function FromDecConv(x, toBase, bits=5) {
     let integralPart = parseInt(x.toString().split('.')[0])
     let fractionalPart = x - integralPart
 
+    if(toBase == 'u1') {
+        return FromDecConv
+    }
+
     if(fractionalPart == 0) {
         return FromDecConvInt(integralPart, toBase)
     }
@@ -219,13 +223,8 @@ function U2ToDec(x) {
 
 function U1ToDec(x) {
     let integralPart = x.split('.')[0]
-    let fractionalPart = x.split('.')[1]
 
-    if(typeof fractionalPart == 'undefined') {
-        return -1 * (2 ** (integralPart.length - 1) - 1) * parseInt(integralPart[0]) + ToDecConvInt(integralPart.slice(1), 2)
-    }
-
-    return -1 * (2 ** (integralPart.length - 1) - 1) * parseInt(integralPart[0]) + ToDecConvInt(integralPart.slice(1), 2) + ToDecConvFrac(fractionalPart, 2)
+    return -1 * (2 ** (integralPart.length - 1) - 1) * parseInt(integralPart[0]) + ToDecConvInt(integralPart.slice(1), 2)
 }
 
 
