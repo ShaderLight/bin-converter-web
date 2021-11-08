@@ -101,7 +101,7 @@ function FromDecConvFrac(x, toBase, bits=5) {
             break
         }
 
-        if(integralPart < 0) {
+        if(integralPart == 0) {
             output.push('0')
         }
         bits -= 1
