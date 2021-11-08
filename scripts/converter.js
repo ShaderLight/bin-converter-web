@@ -187,6 +187,24 @@ function BinToU2(x) {
 }
 
 
+function BinToU1(x) {
+    let integralPart = x.split('.')[0]
+    
+    if(integralPart[0] == '-') {
+        if(integralPart[1] == '1') {
+            return Inversion('0' + integralPart.slice(1))
+        }
+        return Inversion(x.slice(1))
+    }
+
+    if(integralPart[0] == '0') {
+        return integralPart
+    }
+
+    return '0' + integralPart
+}
+
+
 function Inversion(x) {
     let output = ''
     for(let i = 0; i < x.length; i++) {
