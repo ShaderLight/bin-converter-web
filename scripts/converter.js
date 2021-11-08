@@ -1,9 +1,13 @@
 function FromDecConv(x, toBase, bits=5) {
     let integralPart = parseInt(x.toString().split('.')[0])
-    let fractionalPart = x - integralPart
+    let fractionalPart = Math.abs(x - integralPart)
 
     if(toBase == 'u1') {
-        return FromDecConv
+        return BinToU1(FromDecConv(integralPart, 2, bits))
+    }
+
+    if(toBase == 'u2') {
+        return BinToU2(FromDecConv(x, 2, bits))
     }
 
     if(fractionalPart == 0) {
@@ -65,7 +69,7 @@ function FromDecConvInt(x, toBase) {
 
 // Takes positive float number less than 1 and converts it to any base (up to base-16)
 // bits -> maximum factional bits to calculate (precision)
-function FromDecConvFrac(x, toBase, bits) {
+function FromDecConvFrac(x, toBase, bits=5) {
     if(x >= 1) {
         throw 'Greater than 1 Error'
     }
@@ -77,14 +81,16 @@ function FromDecConvFrac(x, toBase, bits) {
         x *= toBase
         integralPart = parseInt(x.toString().split('.')[0])
         x -= integralPart
-        if(x == 0) {
-            break
-        }
 
         if(integralPart >= 1) {
             output.push(integralPart.toString())
         }
-        else {
+
+        if(x == 0) {
+            break
+        }
+
+        if(integralPart < 0) {
             output.push('0')
         }
         bits -= 1
@@ -175,7 +181,6 @@ function DetranslateValues(x) {
 function BinToU2(x) {
     if(x[0] == '-') {
         if(x[1] == '1') {
-            console.log(Inversion('0' + x.slice(1)))
             x = Inversion('0' + x.slice(1))
         }
         else {
@@ -255,7 +260,6 @@ function BinAddOneLsb(x) {
         if(x[x.length - i - 1] == '0') {
             
             output = x.slice(0, x.length - i - 1) + '1' + '0'.repeat(x.slice(x.length - i).length)
-            console.log(output)
 
             if(sepIndex >= 0) {
                 output = output.slice(0, sepIndex) + '.' + output.slice(sepIndex + 1)
