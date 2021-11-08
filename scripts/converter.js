@@ -10,6 +10,8 @@ function FromDecConv(x, toBase, bits=5) {
         return BinToU2(FromDecConv(x, 2, bits))
     }
 
+    toBase = parseInt(toBase)
+
     if(fractionalPart == 0) {
         return FromDecConvInt(integralPart, toBase)
     }
@@ -29,6 +31,15 @@ function ToDecConv(x, fromBase) {
 
     let integralPart = x.toString().split('.')[0]
     let fractionalPart = x.toString().split('.')[1]
+
+    if(fromBase == 'u1') {
+        return U1ToDec(x)
+    }
+    if(fromBase == 'u2') {
+        return U2ToDec(x)
+    }
+
+    toBase = parseInt(toBase)
 
     if(typeof fractionalPart == 'undefined') {
         return negative * ToDecConvInt(integralPart, fromBase)
