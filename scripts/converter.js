@@ -39,7 +39,7 @@ function ToDecConv(x, fromBase) {
         return U2ToDec(x)
     }
 
-    toBase = parseInt(toBase)
+    fromBase = parseInt(fromBase)
 
     if(typeof fractionalPart == 'undefined') {
         return negative * ToDecConvInt(integralPart, fromBase)
