@@ -8,7 +8,7 @@ function BindComboboxEvent()
 
 function ChangeOutputParagraphs(fromBaseBox)
 {
-    let outputParagraphs = document.getElementsByClassName('outputs');
+    let outputParagraphs = document.getElementsByClassName('output-lbls');
     let currentSelection = fromBaseBox.options[fromBaseBox.selectedIndex].text
     let i = 0
     let j = 0
