@@ -217,6 +217,18 @@ function U2ToDec(x) {
 }
 
 
+function U1ToDec(x) {
+    let integralPart = x.split('.')[0]
+    let fractionalPart = x.split('.')[1]
+
+    if(typeof fractionalPart == 'undefined') {
+        return -1 * (2 ** (integralPart.length - 1) - 1) * parseInt(integralPart[0]) + ToDecConvInt(integralPart.slice(1), 2)
+    }
+
+    return -1 * (2 ** (integralPart.length - 1) - 1) * parseInt(integralPart[0]) + ToDecConvInt(integralPart.slice(1), 2) + ToDecConvFrac(fractionalPart, 2)
+}
+
+
 function Inversion(x) {
     let output = ''
     for(let i = 0; i < x.length; i++) {
