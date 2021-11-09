@@ -12,6 +12,7 @@ label {
 
 h1 {
     text-align: center;
+    padding: 20px;
 }
 
 button {
@@ -63,7 +64,8 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    flex-direction: column;
+    padding: 10px;
 }
 
 #input-container-2 {
@@ -72,6 +74,22 @@ button:hover {
     min-width: 60%;
     padding: 5px;
     padding-top: 0px;
+}
+
+#base-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bits-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#input-labels {
+    text-align: center;
 }
 
 #button-container {
