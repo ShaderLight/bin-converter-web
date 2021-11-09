@@ -1,3 +1,4 @@
+/* General styling */
 body {
     background-color: #263238;
     margin: 0;
@@ -11,106 +12,6 @@ label {
 
 h1 {
     text-align: center;
-}
-
-.user-inputs {
-    padding: 1%;
-    margin: 5px;
-}
-
-#main-title {
-    margin: 15px;
-}
-
-#footer {
-    border-top: 3px solid #37474F;
-    position: fixed;
-    bottom: 0.1%;
-    min-width: 100%;
-    height: 42px;
-    text-align: center;
-    background-color: #37474F;
-    color: white;
-    box-sizing:content-box ;
-    margin: 0 auto;
-}
-
-#footer a {
-    text-decoration: underline;
-    text-shadow: 1px 1px blue;
-    color: #cecece;
-}
-
-.outputs {
-    flex-grow: 1;
-    flex-basis: 0;
-    margin: 5px;
-}
-
-.output-lbls {
-    flex-grow: 2;
-    flex-basis: 0;
-    margin: 5px;
-    border: 5px #37474F;
-}
-
-.output-blocks {
-    display: flex;
-    background-color:#37474F;
-    border: 2px #263238 solid;
-    border-radius: 4px;
-    justify-content: center;
-    margin: 5px;
-}
-
-#input-container-2 {
-    display: flex;
-    justify-content: space-evenly;
-    min-width: 60%;
-}
-
-#input-container-main {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    min-width: 50%;
-    background-color: #37474F;
-    border-radius: 2px;
-}
-
-#input-outer {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    min-width: 60%;
-    margin-bottom: 5px;
-}
-
-#output-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    min-width: 30%;
-}
-
-#button-container {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-#output-outer {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-#input-container-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 button {
@@ -128,4 +29,111 @@ button {
 
 button:hover {
     background-color: #607D8B;
+}
+
+#main-title {
+    margin: 15px;
+}
+
+/* Input styling */
+#input-outer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    min-width: 60%;
+    margin-bottom: 5px;
+}
+
+#input-container-main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 50%;
+    background-color: #37474F;
+    border-radius: 2px;
+}
+
+.user-inputs {
+    padding: 1%;
+    margin: 5px;
+}
+
+#input-container-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+#input-container-2 {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 60%;
+    padding: 5px;
+    padding-top: 0px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Output styling */
+#output-outer {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#output-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 30%;
+}
+
+.output-blocks {
+    display: flex;
+    background-color:#37474F;
+    border: 2px #263238 solid;
+    border-radius: 4px;
+    justify-content: center;
+    margin: 5px;
+}
+
+.outputs {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 5px;
+}
+
+.output-lbls {
+    flex-grow: 2;
+    flex-basis: 0;
+    margin: 5px;
+    border: 5px #37474F;
+    min-width: 20%;
+}
+
+/* Footer styling */
+#footer {
+    border-top: 3px solid #37474F;
+    position: fixed;
+    bottom: 0.1%;
+    min-width: 100%;
+    height: 42px;
+    text-align: center;
+    background-color: #37474F;
+    color: white;
+    box-sizing:content-box ;
+    margin: 0 auto;
+}
+
+#footer a {
+    text-decoration: underline;
+    text-shadow: 1px 1px blue;
+    color: #cecece;
 }
