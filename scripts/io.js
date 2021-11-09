@@ -1,5 +1,6 @@
 const BASES = ['10', '2', 'u1', 'u2', '8', '16']
 
+
 function GetInput() {
     let baseCombobox = document.getElementById('from-base')
     let fromBase = baseCombobox.value
@@ -35,11 +36,55 @@ function Convert() {
 }
 
 
-function Update() {
-    let convertedObject = Convert()
+function SlideIn() {
     let paragraphList = document.getElementsByClassName('outputs')
 
-    for(let i=0; i < paragraphList.length; i++) {
+    for(let i=0; i < paragraphList.length; i++) {        
+        //paragraphList[i].style.flexGrow = '1'
+        paragraphList[i].style.animation = 'slide-in 200ms linear 0s 1 normal forwards'
+    }
+}
+
+
+function SlideOut() {
+    let paragraphList = document.getElementsByClassName('outputs')
+
+    for(let i=0; i < paragraphList.length; i++) {        
+        //paragraphList[i].style.flexGrow = '0'
+        paragraphList[i].style.animation = 'slide-out 200ms linear 0s 1 normal forwards'
+    }
+}
+
+
+function UpdateParagraphs() {
+    let convertedObject = Convert()
+    let paragraphList = document.getElementsByClassName('outputs')
+    setTimeout(SlideOut, 500)
+    for(let i=0; i < paragraphList.length; i++) {        
         paragraphList[i].innerHTML = convertedObject[i]
     }
 }
+
+
+function Update() {
+    SlideOut().done(UpdateParagraphs)
+    SlideIn()
+}
+
+
+//https://stackoverflow.com/a/12140139 <3
+var SlideOut = function () {
+    var r = $.Deferred();
+
+    let paragraphList = document.getElementsByClassName('outputs')
+
+    for(let i=0; i < paragraphList.length; i++) {        
+        paragraphList[i].style.animation = 'slide-out 200ms linear 0s 1 normal forwards'
+    }
+    setTimeout(function () {
+
+        r.resolve();
+    }, 300);
+
+    return r;
+    };

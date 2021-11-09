@@ -1,3 +1,25 @@
+@keyframes slide-out {
+
+    from {
+        flex-grow: 0;
+    }
+
+    to {
+        flex-grow: 1;
+    }
+}
+
+@keyframes slide-in {
+
+    from {
+        flex-grow: 1;
+    }
+
+    to {
+        flex-grow: 0;
+    }
+}
+
 /* General styling */
 body {
     background-color: #263238;
@@ -34,6 +56,7 @@ button:hover {
 
 #main-title {
     margin: 15px;
+    color: #6fc49b;
 }
 
 /* Input styling */
@@ -53,6 +76,7 @@ button:hover {
     min-width: 40%;
     background-color: #37474F;
     border-radius: 2px;
+    box-shadow: inset -1em 0 #6fc49b;
 }
 
 .user-inputs {
@@ -129,12 +153,23 @@ button:hover {
     border-radius: 4px;
     justify-content: center;
     margin: 5px;
+    box-shadow: inset -1em 0 #6fc49b;
 }
 
 .outputs {
     flex-grow: 1;
     flex-basis: 0;
-    margin: 5px;
+    margin: 0px;
+    background-color: #6fc49b;
+    border: 2px #6fc49b solid;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    text-overflow: clip;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .output-lbls {
@@ -163,4 +198,5 @@ button:hover {
     text-decoration: underline;
     text-shadow: 1px 1px blue;
     color: #cecece;
+    animation: slide-in 0.5s ease-in-out 0s 1 normal forwards;
 }
