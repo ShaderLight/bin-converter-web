@@ -50,7 +50,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    min-width: 50%;
+    min-width: 40%;
     background-color: #37474F;
     border-radius: 2px;
 }
@@ -70,10 +70,18 @@ button:hover {
 
 #input-container-2 {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     min-width: 60%;
-    padding: 5px;
+    padding: 10px;
     padding-top: 0px;
+}
+
+#from-base {
+    padding: 2px;
+}
+
+#frac-bits {
+    padding: 2px;
 }
 
 #base-container {
@@ -95,7 +103,8 @@ button:hover {
 #button-container {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 15px;
+    padding-top: 0px;
 }
 
 /* Output styling */
