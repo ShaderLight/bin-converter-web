@@ -42,3 +42,22 @@ label {
 .output-blocks {
     display: inline-block;
 }
+
+#input-container-2 {
+    display: flex;
+    justify-content: center;
+    background-color: darkcyan;
+}
+
+#input-container-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+}
+
+#output-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

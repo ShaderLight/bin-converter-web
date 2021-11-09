@@ -10,24 +10,35 @@
 <body>
     <h1 id="main-title">Binary converter</h1>
 
-    <label for="num-input" class="input-labels">Input a number</label>
-    <input type="text" id="num-input" class="user-inputs" name="num-input">
-    
-    <label for="from-base" class="input-labels">Select representation of the given number</label>
-    <select id="from-base" name="from-base" class="user-inputs" name="from-base">
-        <option value="10">Base-10 (decimal)</option>
-        <option value="2">Base-2 (binary)</option>
-        <option value="u1">One's complement</option>
-        <option value="u2">Two's complement</option>
-        <option value="8">Base-8 (octal)</option>
-        <option value="16">Base-16 (hexadecimal)</option>
-    </select>
-    
-    <label for="frac-bits" class="input-labels">Fractional bits (precision)</label>
-    <input type="number" id="frac-bits" class="user-inputs" name="frac-bits" value="5" min="1" max="10">
+    <div id="input-container-main">
+        <div id="input-container-1">
+            <label for="num-input" class="input-labels">Input a number</label>
+            <input type="text" id="num-input" class="user-inputs" name="num-input">
+        </div>
 
-    <button type="button" onclick="Update()">Convert</button>
-    
+        <div id="input-container-2">
+            <div id="base-container">
+                <label for="from-base" class="input-labels">Select representation of the given number</label>
+                <select id="from-base" name="from-base" class="user-inputs" name="from-base">
+                    <option value="10">Base-10 (decimal)</option>
+                    <option value="2">Base-2 (binary)</option>
+                    <option value="u1">One's complement</option>
+                    <option value="u2">Two's complement</option>
+                    <option value="8">Base-8 (octal)</option>
+                    <option value="16">Base-16 (hexadecimal)</option>
+                </select>
+            </div>
+            
+            <div id="bits-container">
+                <label for="frac-bits" class="input-labels">Fractional bits (precision)</label>
+                <input type="number" id="frac-bits" class="user-inputs" name="frac-bits" value="5" min="1" max="10">
+            </div>
+        </div>
+
+        <div>
+            <button type="button" onclick="Update()">Convert</button>
+        </div>
+    </div>
     <div id="output-container">
         <div id="out-1-container" class="output-blocks">
             <p id="out-1-lbl" class="output-lbls">Base-2 (binary)</p>
