@@ -67,8 +67,14 @@ function UpdateParagraphs() {
 
 
 function Update() {
-    SlideOut().done(UpdateParagraphs)
-    SlideIn()
+    if(CheckInput(GetInput()['number'])) {
+        SlideOut().done(UpdateParagraphs)
+        SlideIn()
+    }
+    else {
+        let numBox = document.getElementById('num-input')
+        numBox.value = 'Invalid input!'
+    }
 }
 
 
@@ -88,3 +94,14 @@ var SlideOut = function () {
 
     return r;
     };
+
+
+// Returns true if the input is a valid number, otherwise false
+function CheckInput(input) {
+    if(input == "") {
+        return false
+    }
+    let inputAntipattern = /[^1234567890.]/
+    
+    return !inputAntipattern.test(input)
+}
