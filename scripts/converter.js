@@ -1,3 +1,4 @@
+// Converts a number from base-10 to any base (up to 16), both fractional or integers, or two's and one's complements
 function FromDecConv(x, toBase, bits=5) {
     let integralPart = parseInt(x.toString().split('.')[0])
     let fractionalPart = Math.abs(x - integralPart)
@@ -21,6 +22,7 @@ function FromDecConv(x, toBase, bits=5) {
 }
 
 
+// Converts a number to base-10 from any base (up to 16), both fractional or integers, or two's and one's complements
 function ToDecConv(x, fromBase) {
     let negative = 1
 
@@ -49,6 +51,7 @@ function ToDecConv(x, fromBase) {
 }
 
 
+// Converts a base-10 integer number into any base (up to 16)
 function FromDecConvInt(x, toBase) {
     let output = []
 
@@ -108,15 +111,12 @@ function FromDecConvFrac(x, toBase, bits=5) {
     }
 
     output = TranslateValues(output)
-    let output_str = ''
 
-    for(let i=0; i < output.length; i++) {
-        output_str += output[i]
-    }
-    return output_str
+    return output.join('')
 }
 
 
+// Converts to base-10 from any base integer
 function ToDecConvInt(x, fromBase) {
     let output = 0
 
@@ -130,6 +130,7 @@ function ToDecConvInt(x, fromBase) {
 }
 
 
+// Converts to base-10 from any base, but the input must be the fractional part of the number only
 function ToDecConvFrac(x, fromBase) {
     output = 0
 
@@ -142,18 +143,15 @@ function ToDecConvFrac(x, fromBase) {
 }
 
 
+// Translates integers greater than 9 in the given array into letters
 function TranslateValues(x) {
     const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
-    let int_element
+    let intElement
     for(var i = 0; i < x.length; i++) {
-        try {
-            int_element = parseInt(x[i])
-        } catch (error) {
-            continue
-        }
+        intElement = parseInt(x[i])
 
-        if (int_element >= 10) {
-            x[i] = LETTERS[int_element - 10]
+        if (intElement >= 10) {
+            x[i] = LETTERS[intElement - 10]
         }
     }
 
@@ -161,34 +159,36 @@ function TranslateValues(x) {
 }
 
 
+// Detranslates letters into integers greater than 9, param x can be either a string or an array
 function DetranslateValues(x) {
     const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
     let output = []
     let letterIndex
     let intElement
 
-    for(var i = 0; i < x.length; i++) {
+    for(const element of x) {
 
-        intElement = parseInt(x[i])
+        intElement = parseInt(element)
         
         if(isNaN(intElement)) {
-            letterIndex = LETTERS.indexOf(x[i])
+            letterIndex = LETTERS.indexOf(element)
             
             if(letterIndex >= 0) {
                 output.push(10 + letterIndex)
             }
             else {
-                output.push(x[i])
+                output.push(element)
             }
         }
         else {
-            output.push(x[i])
+            output.push(parseInt(element))
         }
     }
     return output
 }
 
 
+// Converts a binary number into two's complement
 function BinToU2(x) {
     if(x[0] == '-') {
         if(x[1] == '1') {
@@ -207,6 +207,7 @@ function BinToU2(x) {
 }
 
 
+// Converts a binary number into one's complement, throws away the fractional part if present
 function BinToU1(x) {
     let integralPart = x.split('.')[0]
     
@@ -225,6 +226,7 @@ function BinToU1(x) {
 }
 
 
+// Converts two's complement into a decimal number
 function U2ToDec(x) {
     let integralPart = x.split('.')[0]
     let fractionalPart = x.split('.')[1]
@@ -237,6 +239,7 @@ function U2ToDec(x) {
 }
 
 
+// Converts one's comeplement into a decimal number
 function U1ToDec(x) {
     let integralPart = x.split('.')[0]
 
@@ -244,25 +247,26 @@ function U1ToDec(x) {
 }
 
 
+// Inverses all the bits in a binary number (given as an array or string)
 function Inversion(x) {
     let output = ''
-    for(let i = 0; i < x.length; i++) {
-        if (x[i] == '0') {
+    for(const element of x) {
+        if (element == '0') {
             output += '1'
             continue
         }
-        if (x[i] == '1') {
+        if (element == '1') {
             output += '0'
-            continue
         }
         else {
-            output += x[i]
+            output += element
         }
     }
     return output
 }
 
 
+// Adds one to the least significant bit in a binary number (given as an array or string)
 function BinAddOneLsb(x) {
     let sepIndex = x.indexOf('.')
     let output
