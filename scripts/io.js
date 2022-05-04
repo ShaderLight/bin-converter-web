@@ -108,7 +108,7 @@ function CheckInput(input) {
     if(input == "") {
         return false
     }
-    let inputAntipattern = /[^1234567890.]/
+    let inputAntipattern = /[^1234567890.-]/
     
     return !inputAntipattern.test(input)
 }
